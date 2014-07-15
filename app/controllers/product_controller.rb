@@ -36,16 +36,12 @@ class ProductController < ApplicationController
 
   def getgit
     a=GitPusher.get_contents(params[:repo_name], params[:path])
-    #render json: {message: 'here find contents of git repository'}
-
     if a.nil?
       render json: {message: "The Repository is empty..."}
     else
       #render a.body
       render json: JSON.parse(a.body)
-
     end
-
   end
 
   def new
