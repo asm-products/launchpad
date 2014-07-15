@@ -28,8 +28,6 @@ Rails.application.routes.draw do
 
   resources :product
 
-  get 'generate/index'
-  post 'generate/receive'
     # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
