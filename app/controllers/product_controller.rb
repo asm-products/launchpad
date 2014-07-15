@@ -11,7 +11,7 @@ class ProductController < ApplicationController
     #product=Product.new();
 
     title=params[:title]
-    assembly_id=params[:assembly_id]
+    #assembly_id=params[:assembly_id]
 
 
     GitPusher.create_repo(title)
@@ -26,6 +26,27 @@ class ProductController < ApplicationController
     render json: {message: 'what did you expect here?'}
   end
 
+  def add
+    repo_name=params[:repo_name]
+    file_path=params[:file_path]
+    file_contents=params[:file_contents]
+    GitPusher.add_file(repo_name,file_path,file_contents)
+    render json: {message: 'you are trying to add a file'}
+  end
+
+  def getgit
+    a=GitPusher.get_contents(params[:repo_name], params[:path])
+    #render json: {message: 'here find contents of git repository'}
+
+    if a.nil?
+      render json: {message: "The Repository is empty..."}
+    else
+      #render a.body
+      render json: JSON.parse(a.body)
+
+    end
+
+  end
 
   def new
   end

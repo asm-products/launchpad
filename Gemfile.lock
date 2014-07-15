@@ -57,6 +57,7 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (>= 2.7)
       net-http-pipeline
+    git (1.2.7)
     github_api (0.11.3)
       addressable (~> 2.3)
       descendants_tracker (~> 0.0.1)
@@ -193,6 +194,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  git
   github_api
   httparty
   jbuilder (~> 2.0)

@@ -15,6 +15,7 @@ gem 'rails', '4.1.4'
 gem 'pg'
 gem 'json'
 gem 'httparty'
+gem 'git'
 gem "github_api"
 
 # Use SCSS for stylesheets

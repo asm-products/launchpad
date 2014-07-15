@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  post '/product/generate' => 'product#add'
+  get '/product/getgit'=>'product#getgit'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
