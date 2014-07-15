@@ -13,15 +13,10 @@ class ProductController < ApplicationController
     title=params[:title]
     assembly_id=params[:assembly_id]
 
-    #repository_path = "git@github.com:assemblymade/"+title+".git"
-    #g=Git.init(title)
+
+    GitPusher.create_repo(title)
 
 
-    #GitPusher.push();
-
-    #g.add(:all=>true)
-
-    #g.push(g.remote(repository_path))
     return_string="you created a product called "+title
     render json: {message: return_string}
 

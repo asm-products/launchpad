@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails-api'
 
 
-gem 'git'
+#gem 'git'
 gem 'travis'
 
 
@@ -13,6 +13,9 @@ gem 'rails', '4.1.4'
 #gem 'sqlite3'
 
 gem 'pg'
+gem 'json'
+gem 'httparty'
+gem "github_api"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
