@@ -48,7 +48,8 @@ class GitPusher
     puts contents
 
     a=HTTParty.put(add_file_url,
-    :body=>{#:path=>file_path,
+    :body=>{
+      :path=>file_path,
       :message=>"Adding File #{file_path}",
       :content=>contents}.to_json,
     :headers => {"Authorization" => "token #{Token}",

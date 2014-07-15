@@ -8,11 +8,8 @@ class ProductController < ApplicationController
 
   def create
 
-    #product=Product.new();
 
     title=params[:title]
-    #assembly_id=params[:assembly_id]
-
 
     GitPusher.create_repo(title)
 
@@ -26,9 +23,9 @@ class ProductController < ApplicationController
     render json: {message: 'what did you expect here?'}
   end
 
-  def add
+  def addfile
     repo_name=params[:repo_name]
-    file_path=params[:file_path]
+    file_path=params[:path]
     file_contents=params[:file_contents]
     GitPusher.add_file(repo_name,file_path,file_contents)
     render json: {message: 'you are trying to add a file'}
