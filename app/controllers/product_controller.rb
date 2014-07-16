@@ -1,8 +1,6 @@
 class ProductController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  #before_action :authenticate, except: [:index]
-
 
   def create
 
@@ -46,7 +44,7 @@ class ProductController < ApplicationController
 
     GitPusher.create_repo(title)
 
-    heroku_app_name=title+"_assembled"
+    heroku_app_name=title+"-assembled"
     Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
 

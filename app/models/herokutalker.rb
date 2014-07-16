@@ -10,6 +10,8 @@ class Herokutalker
 
       heroku.post_app('name'=>name)
 
+      'heroku sharing:transfer assembly --app name'
+
     end
 
 
