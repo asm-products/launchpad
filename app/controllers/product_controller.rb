@@ -1,7 +1,5 @@
 class ProductController < ApplicationController
 
-
-  #TOKEN="ylbmessa"
   skip_before_filter :verify_authenticity_token
   #before_action :authenticate, except: [:index]
 
@@ -40,6 +38,50 @@ class ProductController < ApplicationController
       render json: JSON.parse(a.body)
     end
   end
+
+
+  def deploy
+
+    title=params[:title]
+
+    GitPusher.create_repo(title)
+
+    heroku_app_name=title+"_assembled"
+    Herokutalker.create_app(heroku_app_name)
+    puts "Heroku App #{heroku_app_name} assembled"
+
+
+    d=Nodeprep.list_node_contents()
+    puts "Directory Info Here"
+    puts d.to_s
+
+    k=0
+
+    d.each do |file_path|
+
+      k=k+1
+      m=k.to_s+" / "+d.length.to_s
+      puts m
+
+      #puts file_path
+      repo_path=file_path
+
+
+      if !File.directory?(file_path)
+        file_contents=File.read(file_path)
+        repo_path.slice!(0,13)
+        GitPusher.add_file(title,repo_path, file_contents)
+
+        puts "Added file #{file_path} to #{title} at #{repo_path}"
+
+      end
+
+    end
+
+    render json: {message: 'Files Moved to New Repo'}
+
+  end
+
 
   def new
   end

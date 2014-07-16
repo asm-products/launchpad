@@ -34,3 +34,15 @@ To add a file to an existing Github Repository under /Assemblymade
                          # do not include '/' for root, but merely 'fileatroot'
                          # or 'subfolder/file'
          file_contents     #AS A STRING
+
+
+
+To deploy a new project with a minimal Node.JS server
+
+
+  POST    /Product/deploy
+
+
+       with parameters in JSON object
+
+       title     # no spaces allowed

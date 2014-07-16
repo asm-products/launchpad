@@ -5,7 +5,8 @@ class GitPusher
 
   class << self
 
-    Token="0debf5ae8c10c176e546c81da74eefbf638480f0"
+    Token=ENV['GIT_TOKEN']
+    Orgname="assemblymade"
 
     def push(repo_name)
       repo_url="https://github.com/asm-products/"+repo_name+".git"
@@ -20,11 +21,7 @@ class GitPusher
     def create_repo(repo_name)
 
 
-    #g=authenticate().
-    orgname="assemblymade"
-    create_repo_url="https://api.github.com/orgs/#{orgname}/repos"
-
-
+    create_repo_url="https://api.github.com/orgs/#{Orgname}/repos"
 
     a=HTTParty.post(create_repo_url, :body => {:name=>repo_name}.to_json,
     :headers => {"Authorization" => "token #{Token}",
@@ -34,18 +31,15 @@ class GitPusher
     )
     puts a
 
-
     end
 
 
   def add_file(repo_name, file_path, file_contents)
 
-    orgname="assemblymade" #inelegant duplication here
+    add_file_url="https://api.github.com/repos/#{Orgname}/#{repo_name}/contents/#{file_path}"
 
-    add_file_url="https://api.github.com/repos/#{orgname}/#{repo_name}/contents/#{file_path}"
-
-    contents=Base64.encode64(file_contents)
-    puts contents
+    contents=Base64.strict_encode64(file_contents)
+    #puts contents
 
     a=HTTParty.put(add_file_url,
     :body=>{
@@ -57,16 +51,14 @@ class GitPusher
     'Content-Type' => 'application/json'
     }
     )
-    puts a
+    return a
 
   end
 
 
   def get_contents(repo_name, path)
-    orgname="assemblymade" #inelegant duplication here
 
-    get_contents_url="https://api.github.com/repos/#{orgname}/#{repo_name}/contents/#{path}"
-
+    get_contents_url="https://api.github.com/repos/#{Orgname}/#{repo_name}/contents/#{path}"
 
     a=HTTParty.get(get_contents_url,
     :body=>{#:path=>file_path,
@@ -81,12 +73,6 @@ class GitPusher
 
 
   end
-
-  def add_folder(local_path)
-
-  end
-
-
 
   end
 end

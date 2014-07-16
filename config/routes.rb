@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post '/product/generate' => 'product#create'
   get '/product/getgit'=>'product#getgit'
   put '/product/addfile' => 'product#addfile'
+  post '/product/deploy' => 'product#deploy'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
