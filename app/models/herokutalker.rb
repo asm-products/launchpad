@@ -39,12 +39,12 @@ class Herokutalker
       m='eval "$(ssh-agent -s)"'
       m=m+'ssh-add launchpad;'
       exec(m)
-      sleep(2)
+
       m=''
       m=m+'Wagnerian0pera;'
-
+      `echo m`
       puts 'stuff should happen here'
-
+      m=''
       m=m+'ssh -T git@github.com;'
       m=m+'yes;'
       m=m+'cd nodetemplate;'
