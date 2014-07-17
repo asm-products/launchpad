@@ -46,12 +46,14 @@ class Herokutalker
       puts 'stuff should happen here'
 
       m=m+'ssh -T git@github.com;'
+      m=m+'yes;'
       m=m+'cd nodetemplate;'
       m=m+'git init;'
       m=m+'git add .;'
       m=m+'git commit -m "initial commit";'
       m=m+'git remote add heroku '+heroku_git_repo+'.git;'
       m=m+'git push heroku master;'
+      m=m+'yes;'
       exec(m)
 
       #exec('ssh-add launchpad')
