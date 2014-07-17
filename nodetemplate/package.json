@@ -1,5 +1,5 @@
 {
-"name":  "panther-assembled",
+"name":  "applejuice-assembled",
   "version": "0.0.0",
   "description": "Starter Page",
   "main": "hello.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-   "url": "https://github.com/assemblymade/panther.git"
+   "url": "https://github.com/assemblymade/applejuice.git"
   },
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/panther/issues" ,
+   "url": "https://github.com/assemblymade/applejuice/issues" ,
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {

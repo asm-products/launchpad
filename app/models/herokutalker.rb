@@ -33,15 +33,42 @@ class Herokutalker
 
     def heroku_build(name)
 
-      heroku_git_repo='git@heroku.com:#{name}.git'
+      heroku_git_repo='git@heroku.com:'+name+'.git'
+      puts "Connecting to New Heroku remote #{heroku_git_repo}}"
 
-      Dir.chdir('nodetemplate') do
-        exec('git init')
-        exec('git add .')
-        exec('git commit -m "initial commit"')
-        exec('git remote add heroku ')
-        exec('git push heroku master')
-      end
+      m='eval "$(ssh-agent -s)"'
+      m=m+'ssh-add launchpad;'
+      exec(m)
+      sleep(2)
+      m=''
+      m=m+'Wagnerian0pera;'
+
+      puts 'stuff should happen here'
+
+      m=m+'ssh -T git@github.com;'
+      m=m+'cd nodetemplate;'
+      m=m+'git init;'
+      m=m+'git add .;'
+      m=m+'git commit -m "initial commit";'
+      m=m+'git remote add heroku '+heroku_git_repo+'.git;'
+      m=m+'git push heroku master;'
+      exec(m)
+
+      #exec('ssh-add launchpad')
+      #exec('Wagnerian0pera')
+      #exec('ssh -T git@github.com')
+      #exec('yes')
+
+
+      #Dir.chdir('nodetemplate') do
+
+      #  exec('git init')
+      #  exec('git add .')
+      #  exec('git commit -m "initial commit"')
+      #  exec('git remote add heroku '+heroku_git_repo+'.git')
+      #  exec('git push heroku master')
+      #  puts "pushed something?"
+      #end
     end
 
 

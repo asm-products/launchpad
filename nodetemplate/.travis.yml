@@ -8,4 +8,4 @@ deploy:
   provider: heroku
   api_key:
     secure: FRWm0/k+mzfVegkavFV6duVCEY3XdVPCz/nc3p4JwSlcMHYGUM9R3nBZNwNxOY0qb1dUwU35N7r8DF8g8A+4JUMyd/8hSXD5kCg07be5eImqbQXeIjzXfub7nN9LKQxN/a62paScZ2rayt1oor/0O3je55OCEf33gC665Uo/fGQ=
-  app: panther-assembled
+  app: applejuice-assembled
