@@ -1,5 +1,5 @@
 {
-"name":  "applejuice-assembled",
+"name":  "volgagrad-assembled",
   "version": "0.0.0",
   "description": "Starter Page",
   "main": "hello.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-   "url": "https://github.com/assemblymade/applejuice.git"
+   "url": "https://github.com/assemblymade/volgagrad.git"
   },
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/applejuice/issues" 
+   "url": "https://github.com/assemblymade/volgagrad/issues" ,
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {

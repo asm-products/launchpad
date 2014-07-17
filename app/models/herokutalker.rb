@@ -10,7 +10,7 @@ class Herokutalker
 
       heroku.post_app('name'=>name)
 
-      'heroku sharing:transfer assembly --app name'
+      `heroku sharing:transfer assembly --app name`
 
 
       #create_heroku_url="https://api.heroku.com/organizations/apps"
@@ -34,32 +34,18 @@ class Herokutalker
     def heroku_build(name)
 
       heroku_git_repo='git@heroku.com:'+name+'.git'
-      puts "Connecting to New Heroku remote #{heroku_git_repo}}"
 
-      m='eval "$(ssh-agent -s)"'
-      m=m+'ssh-add launchpad;'
-      exec(m)
+      `echo "IdentityFile /app/launchpad" > ~/.ssh/config`
 
-      m=''
-      m=m+'Wagnerian0pera;'
-      `echo m`
-      puts 'stuff should happen here'
-      m=''
-      m=m+'ssh -T git@github.com;'
-      m=m+'yes;'
       m=m+'cd nodetemplate;'
       m=m+'git init;'
       m=m+'git add .;'
       m=m+'git commit -m "initial commit";'
       m=m+'git remote add heroku '+heroku_git_repo+'.git;'
       m=m+'git push heroku master;'
-      m=m+'yes;'
       exec(m)
 
-      #exec('ssh-add launchpad')
-      #exec('Wagnerian0pera')
-      #exec('ssh -T git@github.com')
-      #exec('yes')
+      puts "Connecting to New Heroku remote #{heroku_git_repo}}"
 
 
       #Dir.chdir('nodetemplate') do
