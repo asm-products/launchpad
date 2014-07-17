@@ -13,7 +13,7 @@
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/applejuice/issues" ,
+   "url": "https://github.com/assemblymade/applejuice/issues" 
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {
