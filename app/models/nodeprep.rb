@@ -47,7 +47,7 @@ class Nodeprep
       lines=File.readlines(packagejson_file_path)
       lines[1] =   "\"name\":  \"#{heroku_app_name}\",\n"
       lines[10]= "   \"url\": \"https://github.com/assemblymade/#{title}.git\"\n"
-      lines[15]= "   \"url\": \"https://github.com/assemblymade/#{title}/issues\" ,\n"
+      lines[15]= "   \"url\": \"https://github.com/assemblymade/#{title}/issues\" \n"
 
       f=File.open(packagejson_file_path,'w')
       lines.each do |x| f.write(x) end

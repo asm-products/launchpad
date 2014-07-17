@@ -90,5 +90,10 @@ class ProductController < ApplicationController
   end
 
 
+def hello
+  render json: {message: "A Product shall you make."}
+end
+
+
 
 end

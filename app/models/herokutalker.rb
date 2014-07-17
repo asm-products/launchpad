@@ -34,15 +34,17 @@ class Herokutalker
     def heroku_build(name)
 
       heroku_git_repo='git@heroku.com:'+name+'.git'
-
+      puts heroku_git_repo
       `echo "IdentityFile /app/launchpad" > ~/.ssh/config`
 
-      m=m+'cd nodetemplate;'
+      m='cd nodetemplate;'
       m=m+'git init;'
       m=m+'git add .;'
       m=m+'git commit -m "initial commit";'
-      m=m+'git remote add heroku '+heroku_git_repo+'.git;'
+      m=m+'git remote rm heroku;'
+      m=m+'git remote add heroku '+heroku_git_repo+';'
       m=m+'git push heroku master;'
+      puts m
       exec(m)
 
       puts "Connecting to New Heroku remote #{heroku_git_repo}}"

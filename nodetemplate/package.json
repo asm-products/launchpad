@@ -1,5 +1,5 @@
 {
-"name":  "volgagrad-assembled",
+"name":  "midnight-assembled",
   "version": "0.0.0",
   "description": "Starter Page",
   "main": "hello.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-   "url": "https://github.com/assemblymade/volgagrad.git"
+   "url": "https://github.com/assemblymade/midnight.git"
   },
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/volgagrad/issues" ,
+   "url": "https://github.com/assemblymade/midnight/issues" 
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {
