@@ -1,24 +1,23 @@
 {
-  "name": "secondserver",
+"name":  "abracadabra-assembled",
   "version": "0.0.0",
-  "description": "testing again",
+  "description": "Starter Page",
   "main": "hello.js",
   "scripts": {
-    "test": "vows --spec"
+    "test": "no tests yet"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemblymade/sharkwave.git"
+   "url": "https://github.com/assemblymade/abracadabra.git"
   },
-  "author": "Andrew",
-  "license": "ISC",
+  "author": "Assembly",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/assemblymade/sharkwave/issues"
+   "url": "https://github.com/assemblymade/abracadabra/issues" ,
   },
-  "homepage": "https://github.com/assemblymade/sharkwave",
+  "homepage": "https://github.com/assemblymade/",
   "dependencies": {
     "express": "^4.6.1",
     "logfmt": "^1.1.2",
-    "vows":"^1.0"
   }
 }

@@ -41,35 +41,43 @@ class ProductController < ApplicationController
   def deploy
 
     title=params[:title]
+    heroku_app_name=title+"-assembled"
 
+    #CREATE GITHUB REPOSITORY
     GitPusher.create_repo(title)
 
-    heroku_app_name=title+"-assembled"
+    #CREATE HEROKU REPOSITORY
     Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
 
 
     d=Nodeprep.list_node_contents()
-    puts "Directory Info Here"
-    puts d.to_s
-
     k=0
 
+    #EDIT NODETEMPLATE FILES
+    Nodeprep.edit_index_file(title)
+    Nodeprep.edit_travis(heroku_app_name)
+    Nodeprep.edit_packagejson(title, heroku_app_name)
+
+    #PARSE EACH FILE IN NODE_TEMPLATE DIRECTORY & PUSH TO GITHUB
     d.each do |file_path|
 
       k=k+1
       m=k.to_s+" / "+d.length.to_s
+      #SHOW FILE COMMIT PROGRESS OF TOTAL
       puts m
 
-      #puts file_path
       repo_path=file_path
 
 
       if !File.directory?(file_path)
         file_contents=File.read(file_path)
-        repo_path.slice!(0,13)
-        GitPusher.add_file(title,repo_path, file_contents)
 
+        #FORMAT REPO NAME TO REMOVE 'nodetemplate/'
+        repo_path.slice!(0,13)
+
+        #PUSH EACH FILE TO GITHUB
+        GitPusher.add_file(title,repo_path, file_contents)
         puts "Added file #{file_path} to #{title} at #{repo_path}"
 
       end
@@ -80,29 +88,6 @@ class ProductController < ApplicationController
 
   end
 
-
-  def new
-  end
-
-  def edit
-  end
-
-  def show
-  end
-
-  def update
-  end
-
-  def destroy
-
-  end
-
-#  private
-#    def authenticate
-#        authenticate_or_request_with_http_token do |token,option|
-#          token==TOKEN
-#    end
-#  end
 
 
 end
