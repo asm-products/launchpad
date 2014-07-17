@@ -30,5 +30,20 @@ class Herokutalker
     end
 
 
+
+    def heroku_build(name)
+
+      heroku_git_repo='git@heroku.com:#{name}.git'
+
+      Dir.chdir('nodetemplate') do
+        exec('git init')
+        exec('git add .')
+        exec('git commit -m "initial commit"')
+        exec('git remote add heroku ')
+        exec('git push heroku master')
+      end
+    end
+
+
   end
 end

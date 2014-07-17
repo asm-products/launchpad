@@ -56,6 +56,10 @@ class Nodeprep
     end
 
 
+  def make_slug
+      exec('tar zcvf nodeslug.tar.gz nodetemplate')
+  end
+
 
 
   end
