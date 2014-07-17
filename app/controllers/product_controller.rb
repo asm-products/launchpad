@@ -44,10 +44,10 @@ class ProductController < ApplicationController
     heroku_app_name=title+"-assembled"
 
     #CREATE GITHUB REPOSITORY      WORKS, OPTIMAL
-    #GitPusher.create_repo(title)
+    GitPusher.create_repo(title)
 
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
-    #Herokutalker.create_app(heroku_app_name)
+    Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
 
 
@@ -77,7 +77,7 @@ class ProductController < ApplicationController
         repo_path.slice!(0,13)
 
         #PUSH EACH FILE TO GITHUB
-        #GitPusher.add_file(title,repo_path, file_contents)
+        GitPusher.add_file(title,repo_path, file_contents)
         puts "Added file #{file_path} to #{title} at #{repo_path}"
 
       end
