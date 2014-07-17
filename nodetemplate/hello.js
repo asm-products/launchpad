@@ -6,7 +6,7 @@ app.use(logfmt.requestLogger());
 
 app.get('/', function(req,res)  {
 
-res.send('Welcome to abracadabra!');
+res.send('Welcome to panther!');
 
 });
 

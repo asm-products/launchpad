@@ -1,23 +1,23 @@
 {
-"name":  "abracadabra-assembled",
+"name":  "panther-assembled",
   "version": "0.0.0",
   "description": "Starter Page",
   "main": "hello.js",
   "scripts": {
-    "test": "no tests yet"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
-   "url": "https://github.com/assemblymade/abracadabra.git"
+   "url": "https://github.com/assemblymade/panther.git"
   },
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/abracadabra/issues" ,
+   "url": "https://github.com/assemblymade/panther/issues" ,
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {
     "express": "^4.6.1",
-    "logfmt": "^1.1.2",
+    "logfmt": "^1.1.2"
   }
 }
