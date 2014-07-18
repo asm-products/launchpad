@@ -56,10 +56,9 @@ class ProductController < ApplicationController
     Nodeprep.edit_packagejson(title, heroku_app_name)
 
     #PUSH TO GITHUB              WORKS, OK
-    node_contents.each_with_index do |file_path,counter|
+    node_contents.each do |file_path|
 
     repo_path=file_path
-
 
       if !File.directory?(file_path)
         file_contents=File.read(file_path)
@@ -95,7 +94,7 @@ def hello
 end
 
 def travistest
-  travis_push.
+  Travispush.push(params[:title])
 end
 
 
