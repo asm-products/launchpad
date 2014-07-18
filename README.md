@@ -46,3 +46,18 @@ To deploy a new project with a minimal Node.JS server
        with parameters in JSON object
 
        title     # no spaces allowed
+
+
+
+
+
+
+ISSUES
+
+1 Need to remove .git files that get added during packaging
+  or do packaging in a temp folder
+
+2  Currently deploying to my personal Heroku, needs to be
+    'transferred' to the Assembly organization
+
+    

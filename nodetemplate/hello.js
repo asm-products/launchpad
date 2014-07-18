@@ -6,7 +6,7 @@ app.use(logfmt.requestLogger());
 
 app.get('/', function(req,res)  {
 
-res.send('Welcome to midnight!');
+res.send('Welcome to hadrianswall!');
 
 });
 
