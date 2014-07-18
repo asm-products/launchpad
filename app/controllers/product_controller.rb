@@ -43,9 +43,11 @@ class ProductController < ApplicationController
     title=params[:title]
     heroku_app_name=title+"-assembled"
 
+    puts "Attempting to create Github Repo"
     #CREATE GITHUB REPOSITORY      WORKS, OPTIMAL
     GitPusher.create_repo(title)
 
+    puts "Attempting to create Heroku App"
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
     Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
