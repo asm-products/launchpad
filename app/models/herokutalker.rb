@@ -37,8 +37,7 @@ class Herokutalker
       puts heroku_git_repo
       #`mkdir ./.ssh/config`
       #`echo "IdentityFile /app/launchpad" > ~/.ssh/config`
-      `echo $(ssh-agent)`
-      `ssh-add launchpad`
+      
 
       m='cd nodetemplate;'
       m=m+'git init;'
