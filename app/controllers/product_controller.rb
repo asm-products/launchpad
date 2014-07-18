@@ -74,7 +74,9 @@ class ProductController < ApplicationController
       end
     end
 
-    Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
+    #Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
+    travis_path="assemblymade/#{title}"
+    Travispush.push(travis_path)
 
     render json: {message: 'Files Moved to New Repo'}
 
@@ -92,6 +94,9 @@ def hello
   render json: {message: "A Product shall you make."}
 end
 
+def travistest
+  travis_push.
+end
 
 
 end
