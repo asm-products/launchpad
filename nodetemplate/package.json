@@ -1,5 +1,5 @@
 {
-"name":  "hadrianswall-assembled",
+"name":  "slipperyslope-assembled",
   "version": "0.0.0",
   "description": "Starter Page",
   "main": "hello.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-   "url": "https://github.com/assemblymade/hadrianswall.git"
+   "url": "https://github.com/assemblymade/slipperyslope.git"
   },
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/hadrianswall/issues" 
+   "url": "https://github.com/assemblymade/slipperyslope/issues" 
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {

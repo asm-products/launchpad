@@ -5,7 +5,7 @@ class GitPusher
 
   class << self
 
-    Token=File.readlines('.env')[0]#ENV['GIT_TOKEN']
+    Token=ENV['GIT_TOKEN']
     Orgname="assemblymade"
 
     def push(repo_name)
