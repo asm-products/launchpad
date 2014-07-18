@@ -52,7 +52,6 @@ class ProductController < ApplicationController
     Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
 
-
     d=Nodeprep.list_node_contents()
     k=0
 

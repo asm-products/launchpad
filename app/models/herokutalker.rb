@@ -10,7 +10,7 @@ class Herokutalker
 
       heroku.post_app('name'=>name)
 
-      `heroku sharing:transfer assembly --app name`
+    #  `heroku sharing:transfer assembly --app name`
 
 
       #create_heroku_url="https://api.heroku.com/organizations/apps"
