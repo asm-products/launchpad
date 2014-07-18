@@ -1,20 +1,20 @@
-Class Travispush
+t= Travis.new(access_token)
 
-  class << self
+class Travispush
 
-    def push(repo_path)
+  def initialize(travis)
+    @travis = travis
+  end
 
-
-    Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
+  def push(repo_path, access_token)
     puts "Hello #{Travis::User.current.name}!"
 
-    rails = Travis::Repository.find(repo_path)
+    rails = @travis.find_repository(repo_path).enable
     rails.enable
     puts "Enabled Github Repo on Travis-CI"
-
   end
-
-  end
-
 
 end
+
+object = Travispush.new(t)
+object.push('asdf/asdf')
