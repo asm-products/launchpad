@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   put '/product/addfile' => 'product#addfile'
   post '/product/deploy' => 'product#deploy'
   post '/product/heroku' => 'product#make_heroku_app'
- post '/product/travis' => 'product#travistest'
+ #post '/product/travis' => 'product#travistest'
   # Example resource route with options:
   #   resources :products do
   #     member do

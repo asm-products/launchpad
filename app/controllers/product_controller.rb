@@ -93,9 +93,6 @@ def hello
   render json: {message: "A Product shall you make."}
 end
 
-def travistest
-  Travispush.push(params[:title])
-end
 
 
 end
