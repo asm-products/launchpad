@@ -1,1 +1,1 @@
-web: rails s
+web: bin/rails server --port $PORT
