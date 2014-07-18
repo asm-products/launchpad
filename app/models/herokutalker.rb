@@ -35,6 +35,7 @@ class Herokutalker
 
       heroku_git_repo='git@heroku.com:'+name+'.git'
       puts heroku_git_repo
+      `mkdir ./.ssh/config`
       `echo "IdentityFile /app/launchpad" > ~/.ssh/config`
 
       m='cd nodetemplate;'
