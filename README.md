@@ -67,4 +67,6 @@ ISSUES
 
 5  Commit 1 Trees not N Files
 
-6  
+6  Need to put Travis TOKEN in ENV File
+
+7  Delete all ENV file commits
