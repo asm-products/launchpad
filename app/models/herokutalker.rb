@@ -2,7 +2,8 @@ class Herokutalker
 
   class << self
 
-    HTOKEN=ENV['HEROKU_AUTH_TOKEN']
+    HTOKEN= File.readlines('.env')[1]
+    #ENV['HEROKU_AUTH_TOKEN']
 
     def create_app(name)
 
