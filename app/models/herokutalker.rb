@@ -9,7 +9,7 @@ class Herokutalker
       heroku=Heroku::API.new(:api_key => HTOKEN)
 
       heroku.post_app(name: name)
-      puts "Heroku App #{heroku_app_name} assembled"
+      puts "Heroku App #{name} assembled"
 
     end
 
