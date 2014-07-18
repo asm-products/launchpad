@@ -40,6 +40,9 @@ class ProductController < ApplicationController
 
   def deploy
 
+    `echo $(ssh-agent)`
+    `ssh-add launchpad`
+
     title=params[:title]
     heroku_app_name=title+"-assembled"
 
