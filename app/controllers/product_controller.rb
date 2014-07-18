@@ -49,7 +49,7 @@ class ProductController < ApplicationController
 
     puts "Attempting to create Heroku App"
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
-    Herokutalker.create_app(heroku_app_name)
+    #Herokutalker.create_app(heroku_app_name)
     puts "Heroku App #{heroku_app_name} assembled"
 
     d=Nodeprep.list_node_contents()
@@ -84,7 +84,7 @@ class ProductController < ApplicationController
       end
     end
 
-    Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
+    #Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
 
     render json: {message: 'Files Moved to New Repo'}
 

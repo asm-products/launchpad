@@ -23,7 +23,7 @@ class Nodeprep
       f=File.open(index_file_path, 'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
-      puts File.read(index_file_path)
+      #puts File.read(index_file_path)
 
     end
 
@@ -36,7 +36,7 @@ class Nodeprep
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
-      puts File.read(travis_file_path)
+      #puts File.read(travis_file_path)
 
     end
 
@@ -52,7 +52,7 @@ class Nodeprep
       f=File.open(packagejson_file_path,'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
-      puts File.read(packagejson_file_path)
+      #puts File.read(packagejson_file_path)
     end
 
 
