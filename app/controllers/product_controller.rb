@@ -3,16 +3,10 @@ class ProductController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-
-
     title=params[:title]
-
     GitPusher.create_repo(title)
-
-
     return_string="you created a product called "+title
     render json: {message: return_string}
-
   end
 
   def index
@@ -40,8 +34,8 @@ class ProductController < ApplicationController
 
   def deploy
 
-    `eval $(ssh-agent)`
-    `ssh-add launchpad`
+#    `eval $(ssh-agent)`
+#    `ssh-add launchpad`
 
     title=params[:title]
     heroku_app_name=title+"-assembled"
@@ -53,10 +47,8 @@ class ProductController < ApplicationController
     puts "Attempting to create Heroku App"
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
     Herokutalker.create_app(heroku_app_name)
-    puts "Heroku App #{heroku_app_name} assembled"
 
-    d=Nodeprep.list_node_contents()
-    k=0
+    node_contents=Nodeprep.list_node_contents()
 
     #EDIT NODETEMPLATE FILES     WORKS, VERY NON-OPTIMAL
     Nodeprep.edit_index_file(title)
@@ -64,14 +56,9 @@ class ProductController < ApplicationController
     Nodeprep.edit_packagejson(title, heroku_app_name)
 
     #PUSH TO GITHUB              WORKS, OK
-    d.each do |file_path|
+    node_contents.each_with_index do |file_path,counter|
 
-      k=k+1
-      m=k.to_s+" / "+d.length.to_s
-      #SHOW FILE COMMIT PROGRESS OF TOTAL
-      puts m
-
-      repo_path=file_path
+    repo_path=file_path
 
 
       if !File.directory?(file_path)
@@ -93,6 +80,13 @@ class ProductController < ApplicationController
 
   end
 
+
+def make_heroku_app
+  heroku_app_name=params[:title]
+  render json: {message: 'making heroku app'}
+  Herokutalker.create_app(heroku_app_name)
+
+end
 
 def hello
   render json: {message: "A Product shall you make."}

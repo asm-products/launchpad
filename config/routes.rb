@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/product/getraigit'=>'product#getgit'
   put '/product/addfile' => 'product#addfile'
   post '/product/deploy' => 'product#deploy'
+  post '/product/heroku' => 'product#make_heroku_app'
 
   # Example resource route with options:
   #   resources :products do

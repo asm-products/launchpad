@@ -64,3 +64,5 @@ ISSUES
 
 4  Need to ornament, build out Nodejs server
     IDEA : randomized art themes?!?
+
+5  Commit 1 Trees not N Files
