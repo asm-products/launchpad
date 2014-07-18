@@ -60,4 +60,7 @@ ISSUES
 2  Currently deploying to my personal Heroku, needs to be
     'transferred' to the Assembly organization
 
-    
+3  Need to write tests
+
+4  Need to ornament, build out Nodejs server
+    IDEA : randomized art themes?!?
