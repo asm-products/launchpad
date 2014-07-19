@@ -75,7 +75,7 @@ class ProductController < ApplicationController
 
     #Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
     travis_path="assemblymade/#{title}"
-    Travispush.push(travis_path, "zPfGpvUGrci1cFk198Bdow")
+    Travispush.push(travis_path)
 
     render json: {message: 'Files Moved to New Repo'}
 
@@ -88,6 +88,14 @@ def make_heroku_app
   Herokutalker.create_app(heroku_app_name)
 
 end
+
+def travisenable
+  repo_path=params[:title]
+  Travispush.push(repo_path)
+  render json: {message: 'trying to enable repo on travis ci'}
+
+end
+
 
 def hello
   render json: {message: "A Product shall you make."}

@@ -4,8 +4,8 @@ class Travispush
   #  @travis = travis
   #end
 
-  def self.push(repo_path, access_token)
-    Travis.access_token = access_token
+  def self.push(repo_path)
+    Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
     puts "Hello #{Travis::User.current.name}!"
     Travis::User.current.sync
     rails = Travis::Repository.find(repo_path)
