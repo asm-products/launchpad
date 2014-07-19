@@ -5,6 +5,7 @@ class Travispush
   #end
 
   def self.push(repo_path)
+    sleep(4.0)
     Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
     puts "Hello #{Travis::User.current.name}!"
     Travis::User.current.sync
