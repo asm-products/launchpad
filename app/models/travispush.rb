@@ -5,6 +5,7 @@ class Travispush
   #end
 
   def self.push(repo_path, access_token)
+    Travis.access_token = access_token
     puts "Hello #{Travis::User.current.name}!"
 
     rails = Travis::Repository.find_repository(repo_path).enable
