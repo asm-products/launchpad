@@ -50,8 +50,8 @@ class ProductController < ApplicationController
 
     travis_path="assemblymade/#{title}"
     puts travis_path
-    sleep(10.0)
-    Travispush.push(travis_path)
+    #sleep(10.0)
+    #Travispush.push(travis_path)
 
     node_contents=Nodeprep.list_node_contents()
 
@@ -92,7 +92,7 @@ def make_heroku_app
 end
 
 def travisenable
-  repo_path=params[:title]
+  repo_path='assemblymade/'+params[:title]
   Travispush.push(repo_path)
   render json: {message: 'trying to enable repo on travis ci'}
 
