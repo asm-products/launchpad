@@ -48,10 +48,6 @@ class ProductController < ApplicationController
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
     Herokutalker.create_app(heroku_app_name)
 
-    travis_path="assemblymade/#{title}"
-    puts travis_path
-    #sleep(10.0)
-    #Travispush.push(travis_path)
 
     node_contents=Nodeprep.list_node_contents()
 
@@ -78,6 +74,15 @@ class ProductController < ApplicationController
       end
     end
 
+    travis_path="assemblymade/#{title}"
+    puts travis_path
+    sleep(10.0)
+    puts "Enabling on Travis-CI"
+    Travispush.push(travis_path)
+    sleep(10.0)
+    puts "Adding Readme"
+    readme_contents=Base64.strict_encode64('Welcome to #{title}!')
+    GitPusher.add_file(title,'readme.md',readme_contents)
 
     render json: {message: 'Files Moved to New Repo'}
 
