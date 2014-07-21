@@ -11,18 +11,20 @@ class Nodeprep
   #EDIT NODEJS SERVER FILE
     def edit_index_file(title)
 
-      index_file_name="hello.js"
-      index_file_path="nodetemplate/#{index_file_name}"
+    index_file_name='index.html'
+    index_file_path="./nodetemplate/public/#{index_file_name}"
 
-      lines=File.readlines(index_file_path)
+    lines=File.readlines(index_file_path)
 
-      message="'Welcome to #{title}!'"
+    #PRODUCT NAME
+    lines[3]="var maintext=\"#{title}\"";
 
-      lines[8] = "res.send(#{message});\n"
-      f=File.open(index_file_path, 'w')
-      lines.each do |x| f.write(x) end
-      f.close unless f==nil
-      #puts File.read(index_file_path)
+
+
+
+    f=File.open(index_file_path,'w')
+    lines.each do |x| f.write(x) end
+    f.close unless f==nil
 
     end
 
