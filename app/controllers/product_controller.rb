@@ -99,7 +99,13 @@ end
 def travisenable
   repo_path='assemblymade/'+params[:title]
   Travispush.push(repo_path)
+
+  puts "Adding Readme"
+  readme_contents="Welcome to #{title}!\n\nThis is your starter NodeJS product page."
+  GitPusher.add_file(title,'readme.md',readme_contents)
+
   render json: {message: 'trying to enable repo on travis ci'}
+
 
 end
 
