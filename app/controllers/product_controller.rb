@@ -81,7 +81,7 @@ class ProductController < ApplicationController
     Travispush.push(travis_path)
     sleep(10.0)
     puts "Adding Readme"
-    readme_contents=Base64.strict_encode64('Welcome to #{title}!')
+    readme_contents=Base64.strict_encode64("Welcome to #{title}!")
     GitPusher.add_file(title,'readme.md',readme_contents)
 
     render json: {message: 'Files Moved to New Repo'}
