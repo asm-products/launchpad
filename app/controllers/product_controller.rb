@@ -97,7 +97,8 @@ def make_heroku_app
 end
 
 def travisenable
-  repo_path='assemblymade/'+params[:title]
+  title=params[:title]
+  repo_path='assemblymade/'+title
   Travispush.push(repo_path)
 
   puts "Adding Readme"
