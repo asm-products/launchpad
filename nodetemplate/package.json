@@ -4,7 +4,7 @@
   "description": "Starter Page",
   "main": "hello.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "mocha ./test/"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {
     "express": "^4.6.1",
-    "logfmt": "^1.1.2"
+    "logfmt": "^1.1.2",
+    "mocha":"*"
   }
+
 }
