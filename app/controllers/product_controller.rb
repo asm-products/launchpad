@@ -48,6 +48,10 @@ class ProductController < ApplicationController
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
     Herokutalker.create_app(heroku_app_name)
 
+    travis_path="assemblymade/#{title}"
+    puts travis_path
+    Travispush.push(travis_path)
+
     node_contents=Nodeprep.list_node_contents()
 
     #EDIT NODETEMPLATE FILES     WORKS, VERY NON-OPTIMAL
@@ -73,10 +77,6 @@ class ProductController < ApplicationController
       end
     end
 
-    #Herokutalker.heroku_build(heroku_app_name)   #DOESNT WORK YET
-    travis_path="assemblymade/#{title}"
-    puts travis_path
-    Travispush.push(travis_path)
 
     render json: {message: 'Files Moved to New Repo'}
 
