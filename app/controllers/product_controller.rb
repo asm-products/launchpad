@@ -50,6 +50,7 @@ class ProductController < ApplicationController
 
     travis_path="assemblymade/#{title}"
     puts travis_path
+    sleep(10.0)
     Travispush.push(travis_path)
 
     node_contents=Nodeprep.list_node_contents()
