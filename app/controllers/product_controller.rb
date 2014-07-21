@@ -60,7 +60,7 @@ class ProductController < ApplicationController
 
     repo_path=file_path
 
-      if !File.directory?(file_path)
+      if !File.directory?(file_path) and file_path!="nodetemplate/."
         file_contents=File.read(file_path)
 
         #FORMAT REPO NAME TO REMOVE 'nodetemplate/'
