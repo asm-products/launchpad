@@ -4,7 +4,7 @@
   "description": "Starter Page",
   "main": "hello.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "author": "Assembly",
   "license": "MIT",
   "bugs": {
-   "url": "https://github.com/assemblymade/slipperyslope/issues" 
+   "url": "https://github.com/assemblymade/slipperyslope/issues"
   },
   "homepage": "https://github.com/assemblymade/",
   "dependencies": {
