@@ -31,7 +31,7 @@ class Nodeprep
 
   #EDIT TRAVIS FILE with new APP NAME
     def edit_travis(heroku_app_name,title)
-      travis_file_path='nodetemplate/.travis.yml'
+      travis_file_path='./nodetemplate/.travis.yml'
       lines=File.readlines(travis_file_path)
       lines[8]="  app: "+heroku_app_name+"\n"
       f=File.open(travis_file_path,'w')

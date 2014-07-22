@@ -107,7 +107,6 @@ def travisenable
 
   render json: {message: 'trying to enable repo on travis ci'}
 
-
 end
 
 
@@ -115,6 +114,11 @@ def hello
   render json: {message: "A Product shall you make."}
 end
 
+def edit_travis
+  title=params[:title]
+  herokuapp="#{title}-assembled"
+  Nodeprep.edit_travis(herokuapp,title)
+end
 
 
 end
