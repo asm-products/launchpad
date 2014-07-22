@@ -12,7 +12,7 @@ class Nodeprep
     def edit_index_file(title)
 
     index_file_name='index.html'
-    index_file_path="./nodetemplate/public/#{index_file_name}"
+    index_file_path="./nodetemplate/public/freelancer/#{index_file_name}"
 
     lines=File.readlines(index_file_path)
 
