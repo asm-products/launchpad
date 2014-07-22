@@ -47,7 +47,7 @@ class ProductController < ApplicationController
     puts "Attempting to create Heroku App"
     #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
     Herokutalker.create_app(heroku_app_name)
-
+    Herokutalker.transfer_app(heroku_app_name,"assembly")
 
     node_contents=Nodeprep.list_node_contents()
 
@@ -118,6 +118,14 @@ def edit_travis
   title=params[:title]
   herokuapp="#{title}-assembled"
   Nodeprep.edit_travis(herokuapp,title)
+  render json: {message: "you are editing the travis file"}
+end
+
+def transfer_heroku
+  heroku_app_name="#{params[:title]}-assembled"
+  Herokutalker.transfer_app(heroku_app_name,"assembly")
+  render json: {message: "You are transferring heroku ownership to Assembly"}
+
 end
 
 

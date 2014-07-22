@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post '/product/heroku' => 'product#make_heroku_app'
   post '/product/travis' => 'product#travisenable'
   post '/product/edittravis'=>'product#edit_travis'
-
+  post '/product/transferheroku' => 'product#transfer_heroku'
  #post '/product/travis' => 'product#travistest'
   # Example resource route with options:
   #   resources :products do

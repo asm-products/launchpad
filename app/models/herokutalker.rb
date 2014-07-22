@@ -13,7 +13,7 @@ class Herokutalker
 
     end
 
-    
+
 
     def heroku_build(name)
 
@@ -35,16 +35,25 @@ class Herokutalker
 
       puts "Connecting to New Heroku remote #{heroku_git_repo}}"
 
+    end
 
-      #Dir.chdir('nodetemplate') do
+    def transfer_app(heroku_app_name, new_owner)
 
-      #  exec('git init')
-      #  exec('git add .')
-      #  exec('git commit -m "initial commit"')
-      #  exec('git remote add heroku '+heroku_git_repo+'.git')
-      #  exec('git push heroku master')
-      #  puts "pushed something?"
-      #end
+        htoke="371c0b38-bce1-4483-b6ab-a66c73d16a17"
+        
+        auth=Base64.strict_encode64(":#{htoke}")
+        puts "AUTH #{auth}"
+        transfer_url="https://api.heroku.com/account/app-transfers"
+        a=HTTParty.post(transfer_url, :body => {:app=>heroku_app_name,
+        :recipient=>new_owner
+        }.to_json,
+          :headers => {"Accept" => "application/vnd.heroku+json; version=3",
+          'Content-Type' => 'application/json',
+          'Authorization'=> auth#'c5ec0392-c8b9-4f76-834a-63271554e072'#ENV['HEROKU_AUTH_TOKEN']
+        }
+        )
+        puts a
+
     end
 
 

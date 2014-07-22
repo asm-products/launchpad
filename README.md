@@ -68,3 +68,5 @@ ISSUES
 6  Need to put Travis TOKEN in ENV File
 
 7  Delete all ENV file commits
+
+8  HEROKU TALKER remove htoken explicitly there

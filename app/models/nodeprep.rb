@@ -39,9 +39,15 @@ class Nodeprep
       f.close unless f==nil
       #puts File.read(travis_file_path)
 
+
+
+      toke="371c0b38-bce1-4483-b6ab-a66c73d16a17"
+      auth=Base64.strict_encode64(":#{htoke}")
+      puts "AUTH #{auth}"
+
       #Travis::CLI::Encrypt.run_cli('encrypt',ENV['HEROKU_AUTH_TOKEN'],'-r',"assemblymade/#{title}")
       `cd ~/nodetemplate`
-      `travis encrypt #{ENV['HEROKU_AUTH_TOKEN']} -r assemblymade/#{title} --add deploy.api_key --skip-version-check`
+      `travis encrypt #{auth} -r assemblymade/#{title} --add deploy.api_key --skip-version-check`
       `cd ~`
 
     end
