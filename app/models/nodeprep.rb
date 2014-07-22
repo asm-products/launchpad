@@ -30,14 +30,19 @@ class Nodeprep
 
 
   #EDIT TRAVIS FILE with new APP NAME
-    def edit_travis(heroku_app_name)
+    def edit_travis(heroku_app_name,title)
       travis_file_path='nodetemplate/.travis.yml'
       lines=File.readlines(travis_file_path)
-      lines[10]="  app: "+heroku_app_name+"\n"
+      lines[8]="  app: "+heroku_app_name+"\n"
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
       #puts File.read(travis_file_path)
+
+      #Travis::CLI::Encrypt.run_cli('encrypt',ENV['HEROKU_AUTH_TOKEN'],'-r',"assemblymade/#{title}")
+      `cd ~/nodetemplate`
+      `travis encrypt #{ENV['HEROKU_AUTH_TOKEN']} -r assemblymade/#{title} --add deploy.api_key --skip-version-check`
+      `cd ~`
 
     end
 

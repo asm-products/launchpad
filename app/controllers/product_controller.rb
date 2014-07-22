@@ -53,7 +53,7 @@ class ProductController < ApplicationController
 
     #EDIT NODETEMPLATE FILES     WORKS, VERY NON-OPTIMAL
     Nodeprep.edit_index_file(title)
-    Nodeprep.edit_travis(heroku_app_name)
+    Nodeprep.edit_travis(heroku_app_name,title)
     Nodeprep.edit_packagejson(title, heroku_app_name)
 
     #PUSH TO GITHUB              WORKS, OK

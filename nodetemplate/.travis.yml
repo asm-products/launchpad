@@ -6,5 +6,6 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  api_key: ENV['HEROKU_AUTH_TOKEN']
+  api_key:
+    secure: U8Sxu5/2UmZ6yw5AqFdp+SIiLfI4jLVzpnlmzM64G/5eEGd7ViRHyihW1lOFR53W3a9pCtTs/2qv5nnPjqfNiCbvXV5d1IT1Y6dZER04nTMNtq4MmSdNluvg8G5YbqK63Ikz4xjzsOwaFWs7gxzS1I4RobOvYKBen3a3r6kjL4Q=
   app: slipperyslope-assembled
