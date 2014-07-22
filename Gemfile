@@ -6,6 +6,7 @@ gem 'rails-api'
 #gem 'git'
 gem 'travis'
 
+gem 'heroku-headless'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
