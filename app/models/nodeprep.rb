@@ -34,11 +34,6 @@ class Nodeprep
       travis_file_path='./nodetemplate/.travis.yml'
       lines=File.readlines(travis_file_path)
       lines[8]="  app: "+heroku_app_name+"\n"
-      f=File.open(travis_file_path,'w')
-      lines.each do |x| f.write(x) end
-      f.close unless f==nil
-      #puts File.read(travis_file_path)
-
 
 
       htoke="371c0b38-bce1-4483-b6ab-a66c73d16a17"
@@ -47,8 +42,21 @@ class Nodeprep
 
       #Travis::CLI::Encrypt.run_cli('encrypt',ENV['HEROKU_AUTH_TOKEN'],'-r',"assemblymade/#{title}")
       `cd ~/nodetemplate`
-      `travis encrypt #{auth} -r assemblymade/#{title} --add deploy.api_key --skip-version-check`
+      key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
       `cd ~`
+      puts key
+
+
+      lines[10]="    secure : #{key}"
+
+      f=File.open(travis_file_path,'w')
+      lines.each do |x| f.write(x) end
+      f.close unless f==nil
+      #puts File.read(travis_file_path)
+
+
+
+
 
     end
 

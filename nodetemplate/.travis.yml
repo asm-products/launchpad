@@ -6,7 +6,7 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  app: bamako-assembled
+  app: moonbase-assembled
   api_key:
-    secure: "eyiDshF+kn+Gjq9G6GjZ1Wpxy63dcV5gKMOxih8UdlSHAXTaY0n1/8pJcW+Y5VDepYdCwNDfXo5aanGm9uiI7M9FCF3961Jc5oPsAMVDD3E9hMRRKKzHLEbqIgtkWybZVgMNKcIE8xvhcnauylqe8te4WtNl52sonxzg/3H7D8M="
+    secure : "LhBPLVw0Ccej+HGHAtZkmJ8MdYIz+AVB0oS9pinnRHE+6rhp92xtoi7uaeVJKfw2bfbCgw0dh0kilLysLqXWN8NFbeW+nLongeOo6sn4qFSAY1ZNnprsbJD6UQHcHoon9W6LJgJvtRbw//in5kYQdf2nvZTyl8GQtZ9Q8bZivcI="
   strategy: git
