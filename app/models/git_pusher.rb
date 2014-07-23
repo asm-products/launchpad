@@ -72,6 +72,24 @@ class GitPusher
     )
     return a
 
+  end
+
+  def send_tree(repo_name,path)
+    node_contents=Nodeprep.list_node_contents()
+
+    tree={}
+
+    node_contents.each do |file_path|
+
+        if !File.directory?(file_path) and file_path!="nodetemplate/."
+
+        file_contents=File.read(file_path)
+        
+
+
+      end
+    end
+
 
 
   end

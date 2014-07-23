@@ -6,5 +6,7 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  app: finnmark-assembled
-  
+  app: bamako-assembled
+  api_key:
+    secure: "eyiDshF+kn+Gjq9G6GjZ1Wpxy63dcV5gKMOxih8UdlSHAXTaY0n1/8pJcW+Y5VDepYdCwNDfXo5aanGm9uiI7M9FCF3961Jc5oPsAMVDD3E9hMRRKKzHLEbqIgtkWybZVgMNKcIE8xvhcnauylqe8te4WtNl52sonxzg/3H7D8M="
+  strategy: git
