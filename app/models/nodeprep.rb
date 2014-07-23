@@ -1,5 +1,6 @@
 class Nodeprep
 
+
   class << self
     def list_node_contents
 
@@ -8,23 +9,42 @@ class Nodeprep
 
     end
 
+    def get_random_image
+      #require 'open-uri'
+      url="'http://lorempixel.com/600/400/abstract'"
+      open('nodetemplate/public/freelancer/random_image.png', 'wb') do |file|
+        file << open(url).read
+      end
+
+    end
+
   #EDIT NODEJS SERVER FILE
     def edit_index_file(title)
 
-    index_file_name='index.html'
-    index_file_path="./nodetemplate/public/freelancer/#{index_file_name}"
+      @title=title
+      @tagline = "One small step for #{title}, one giant leap for mankind"
+      @main_image= "picture.jpg"
+      @pitch = "#{title} has tons of synergy.\nIt also interfaces!"
+      @assembly_description= "#{title} was deployed by Assembly"
 
-    lines=File.readlines(index_file_path)
+      index_file_name='index.html'
+      index_file_path="./nodetemplate/public/freelancer/#{index_file_name}"
 
-    #PRODUCT NAME
-    lines[3]="var maintext=\"#{title}\"";
+      template_file_path="app/views/layouts/website.html.erb"
+      template_contents=File.read(template_file_path)
+    #  puts template_contents
 
+      newtext=ERB.new(template_contents).result(binding)
+      puts newtext
 
+      newfile_path='nodetemplate/public/freelancer/index.html'
 
+      newfile=File.open(newfile_path,'w')
+      newfile.write(newtext)
 
-    f=File.open(index_file_path,'w')
-    lines.each do |x| f.write(x) end
-    f.close unless f==nil
+      #newfile.close()
+
+    #  template_contents.close()
 
     end
 

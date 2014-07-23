@@ -10,7 +10,7 @@
 
     <title id="title">
 
-    Plutonian
+    <%= @title %>
 
     </title>
 
@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img id="frontimg" src=picture.jpg alt="">
+                    <img id="frontimg" src=<%= @main_image %> alt="">
 
 
                     <div class="intro-text">
@@ -43,7 +43,7 @@
 
 
                         <p style="font-size:44pt;">
-                        Plutonian
+                        <%= title %>
                         </p>
 
                         </span>
@@ -51,7 +51,7 @@
                         <span class="skills">
 
                           <p>
-                          One small step for Plutonian, one giant leap for mankind
+                          <%= @tagline %>
                           </p>
 
 
@@ -72,8 +72,7 @@
 
                   </h1>
                     <br>
-                  <p>Plutonian has tons of synergy.
-It also interfaces! </p>
+                  <p><%= @pitch %> </p>
 
                 </div>
             </div>
@@ -108,7 +107,7 @@ It also interfaces! </p>
                       </div>
                       <div class="row">
                           <p>
-                          <=% @assembly_description %>
+                          <%= @assembly_description %>
                           </p>
 
 
