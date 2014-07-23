@@ -44,23 +44,24 @@ class ProductController < ApplicationController
     #CREATE GITHUB REPOSITORY      WORKS, OPTIMAL
     GitPusher.create_repo(title)
 
-    puts "Attempting to create Heroku App"
-    #CREATE HEROKU REPOSITORY     WORKS, NON-OPTIMAL
+    #CREATE HEROKU REPOSITORY
     Herokutalker.create_app(heroku_app_name)
+
+    #TRANSFER HEROKU APP TO ASSEMBLY ORG
     Herokutalker.transfer_app(heroku_app_name,"assembly")
 
     node_contents=Nodeprep.list_node_contents()
 
-    #EDIT NODETEMPLATE FILES     WORKS, VERY NON-OPTIMAL
+    #EDIT NODETEMPLATE FILES  --  PRODUCT SPECIFIC INFO, TRAVIS.YML STUFF
+
     Nodeprep.edit_index_file(title)
     Nodeprep.edit_travis(heroku_app_name,title)
     Nodeprep.edit_packagejson(title, heroku_app_name)
 
-    #PUSH TO GITHUB              WORKS, OK
+    #PUSH NODEJS FILES TO GITHUB
+
     node_contents.each do |file_path|
-
     repo_path=file_path
-
       if !File.directory?(file_path) and file_path!="nodetemplate/."
         file_contents=File.read(file_path)
 
@@ -76,10 +77,14 @@ class ProductController < ApplicationController
 
     travis_path="assemblymade/#{title}"
     puts travis_path
-    sleep(10.0)
+
+    #SLEEP TO ALLOW TRAVIS TO CATCH UP TO GITHUB
+
+    sleep(50.0)
     puts "Enabling on Travis-CI"
     Travispush.push(travis_path)
-    sleep(10.0)
+
+    #FINAL COMMIT NECESSARY
     puts "Adding Readme"
     readme_contents="Welcome to #{title}!\n\nThis is your starter NodeJS product page."
     GitPusher.add_file(title,'readme.md',readme_contents)

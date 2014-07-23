@@ -51,6 +51,7 @@ class Nodeprep
 
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
+      f.write(" before_deploy:\n- git fetch --unshallow")
       f.close unless f==nil
       #puts File.read(travis_file_path)
 

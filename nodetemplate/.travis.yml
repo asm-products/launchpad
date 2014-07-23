@@ -8,5 +8,8 @@ deploy:
   provider: heroku
   app: moonbase-assembled
   api_key:
-    secure : "LhBPLVw0Ccej+HGHAtZkmJ8MdYIz+AVB0oS9pinnRHE+6rhp92xtoi7uaeVJKfw2bfbCgw0dh0kilLysLqXWN8NFbeW+nLongeOo6sn4qFSAY1ZNnprsbJD6UQHcHoon9W6LJgJvtRbw//in5kYQdf2nvZTyl8GQtZ9Q8bZivcI="
+    secure : "Ro0rSUwOCZq+D01fhDpcopMLcOO3cMvj8lYyDxyXCu5Uzv6+YH5OxyEIUnuQwdGkDpUsxsad+B80hpmk3HgWhWTVcntm1y+IpuOkWl3GrhuXMZmIl6Eo7s320uvsv6IkWOVGR1wbRKO1kSfT6JgPtALBkNmXQq21XzKNLs00+xw="
   strategy: git
+ before_deploy:
+- git fetch --unshallow before_deploy:
+- git fetch --unshallow
