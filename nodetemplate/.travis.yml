@@ -6,9 +6,10 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  app: gallipoli-assembled
+  app: assemblymade/gallipoli
   api_key:
-    secure : "ZQKjlXO459PXGj+EZVumRLmDZaRCyY3MQ2QUg/cXBVYONjglZzmHy2hgDXh+Clt3el/gbCyn5uY/5Xak/Y0WsUOMX/RaWIp8/qH4lCWIoEXj2KyschpMmaWV7gPiiltKGZQp2ha0nDLTYpePg4H2/1VexuSfKRESNl96XJzg2nU="
+    secure : "YF1V1vEUiKVsb8jFfCoVrX0NcQfRRq7JDWX+MRymBR9+TTieNLRDeNCiEmQrODo3fptgIp7HdJbS7pdLnBGqMN6Mwi7p4BjQYL9EiC/EbiTnS7+BAbClF/oqEeEjZ8AkGiXAJCdyEg49Gc0Ac28mIeivm3GMZK9Ki5vRP/F1hls="
+
   strategy: git
  before_deploy:
 - git fetch --unshallow

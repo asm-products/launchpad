@@ -61,7 +61,7 @@ class Nodeprep
       auth=Base64.strict_encode64(":#{htoke}")
       puts "AUTH #{auth}"
 
-      maxtries=100
+      maxtries=10
       trycount=0
 
       while trycount<maxtries and !success
