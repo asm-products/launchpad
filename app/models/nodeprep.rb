@@ -61,10 +61,11 @@ class Nodeprep
       auth=Base64.strict_encode64(":#{htoke}")
       puts "AUTH #{auth}"
 
-      maxtries=10
+      maxtries=1000
       trycount=0
 
       while trycount<maxtries and !success
+        sleep(1.0)
         key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
 
         if $?.success?
