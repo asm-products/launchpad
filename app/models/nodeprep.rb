@@ -55,14 +55,26 @@ class Nodeprep
       lines=File.readlines(travis_file_path)
       lines[8]="  app: "+heroku_app_name+"\n"
 
+      success=false
 
       htoke=ENV['HEROKU_AUTH_TOKEN']
       auth=Base64.strict_encode64(":#{htoke}")
       puts "AUTH #{auth}"
 
-      #Travis::CLI::Encrypt.run_cli('encrypt',ENV['HEROKU_AUTH_TOKEN'],'-r',"assemblymade/#{title}")
-      key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
-      puts "SECURE HEROKU KEY GENERATED #{key}"
+      maxtries=100
+      trycount=0
+
+      while trycount<maxtries and !success
+        key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
+
+        if $?.success?
+          success=true
+          puts "SECURE HEROKU KEY GENERATED #{key}"
+        end
+
+        trycount=trycount+1
+
+      end
 
 
       lines[10]="    secure : #{key}\n"
