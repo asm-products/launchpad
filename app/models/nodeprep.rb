@@ -63,7 +63,7 @@ class Nodeprep
 
       maxtries=1000
       trycount=0
-
+      sleep(10.0)
       while trycount<maxtries and !success
         sleep(1.0)
 
