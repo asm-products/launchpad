@@ -56,6 +56,28 @@ class GitPusher
   end
 
 
+  def update_file(repo_name, file_path, file_contents)
+
+    add_file_url="https://api.github.com/repos/#{Orgname}/#{repo_name}/contents/#{file_path}"
+
+    contents=Base64.strict_encode64(file_contents)
+    #puts contents
+
+    a=HTTParty.put(add_file_url,
+    :body=>{
+      :path=>file_path,
+      :message=>"Adding File #{file_path}",
+      :content=>contents}.to_json,
+    :headers => {"Authorization" => "token #{Token}",
+    "User-Agent" => "Launchpad",
+    'Content-Type' => 'application/json'
+    }
+    )
+    return a
+
+  end
+
+
 
 
   def get_contents(repo_name, path)
