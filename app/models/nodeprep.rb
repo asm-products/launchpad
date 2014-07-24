@@ -58,7 +58,7 @@ class Nodeprep
       success=false
 
       htoke=ENV['HEROKU_AUTH_TOKEN']
-      auth=Base64.strict_encode64(":#{htoke}")
+      auth=htoke#Base64.strict_encode64(":#{htoke}")
       puts "AUTH #{auth}"
 
       maxtries=1000
