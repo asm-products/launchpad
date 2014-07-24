@@ -85,7 +85,7 @@ class Nodeprep
       end
 
 
-      lines[10]="    secure : #{key}"
+      lines[10]="    secure: #{key}"
 
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
