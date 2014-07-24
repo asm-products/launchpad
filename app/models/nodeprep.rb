@@ -70,6 +70,7 @@ class Nodeprep
         Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
         #client=Travis::Client.new()
         puts "Travis is trying to sync"
+        puts "#{Travis::User.current.name} is logged in"
         Travis::User.current.sync
 
         key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
@@ -84,7 +85,7 @@ class Nodeprep
       end
 
 
-      lines[10]="    secure : #{key}\n"
+      lines[10]="    secure : #{key}"
 
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
