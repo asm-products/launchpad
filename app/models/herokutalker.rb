@@ -39,12 +39,12 @@ class Herokutalker
 
     def transfer_app(heroku_app_name, new_owner)
 
-        htoke="371c0b38-bce1-4483-b6ab-a66c73d16a17"
-        
+        htoke=HTOKEN
+
         auth=Base64.strict_encode64(":#{htoke}")
         puts "AUTH #{auth}"
         transfer_url="https://api.heroku.com/account/app-transfers"
-        a=HTTParty.post(transfer_url, :body => {:app=>heroku_app_name,
+        response=HTTParty.post(transfer_url, :body => {:app=>heroku_app_name,
         :recipient=>new_owner
         }.to_json,
           :headers => {"Accept" => "application/vnd.heroku+json; version=3",
@@ -52,7 +52,7 @@ class Herokutalker
           'Authorization'=> auth#'c5ec0392-c8b9-4f76-834a-63271554e072'#ENV['HEROKU_AUTH_TOKEN']
         }
         )
-        puts a
+        puts response
 
     end
 

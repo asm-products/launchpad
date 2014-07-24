@@ -6,10 +6,11 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  app: moonbase-assembled
+  app: wasserfall-assembled
   api_key:
-    secure : "Ro0rSUwOCZq+D01fhDpcopMLcOO3cMvj8lYyDxyXCu5Uzv6+YH5OxyEIUnuQwdGkDpUsxsad+B80hpmk3HgWhWTVcntm1y+IpuOkWl3GrhuXMZmIl6Eo7s320uvsv6IkWOVGR1wbRKO1kSfT6JgPtALBkNmXQq21XzKNLs00+xw="
+    secure : "YA/ej6sI9yYbZHg4MBFOR00XiRl1T+SW8JVItuwRjf5+b7aXZq3f1tcE2x0D/9V9PdVK9cp0IfaI72RmUfhnu5PjSWqxtOWhzISE3iOsNKjd76iqE0QX3Pwvp916TyhjNLBIjePf+bJOFszexZvHJalY83E90rYKOXPS1UVnPA8="
   strategy: git
  before_deploy:
+- git fetch --unshallow before_deploy:
 - git fetch --unshallow before_deploy:
 - git fetch --unshallow
