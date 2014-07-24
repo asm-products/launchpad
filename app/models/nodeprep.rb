@@ -61,13 +61,11 @@ class Nodeprep
       puts "AUTH #{auth}"
 
       #Travis::CLI::Encrypt.run_cli('encrypt',ENV['HEROKU_AUTH_TOKEN'],'-r',"assemblymade/#{title}")
-      `cd ~/nodetemplate`
       key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
-      `cd ~`
       puts "SECURE HEROKU KEY GENERATED #{key}"
 
 
-      lines[10]="    secure : #{key}"
+      lines[10]="    secure : #{key}\n"
 
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end

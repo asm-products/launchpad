@@ -34,14 +34,11 @@ class ProductController < ApplicationController
 
   def deploy
 
-#    `eval $(ssh-agent)`
-#    `ssh-add launchpad`
-
     title=params[:title]
     heroku_app_name=title+"-assembled"
 
     puts "Attempting to create Github Repo"
-    #CREATE GITHUB REPOSITORY      WORKS, OPTIMAL
+    #CREATE GITHUB REPOSITORY    
     GitPusher.create_repo(title)
 
     #CREATE HEROKU REPOSITORY
