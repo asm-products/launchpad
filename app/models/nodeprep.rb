@@ -67,17 +67,24 @@ class Nodeprep
       while trycount<maxtries and !success
         sleep(1.0)
 
-        Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
-        #client=Travis::Client.new()
-        puts "Travis is trying to sync"
-        puts "#{Travis::User.current.name} is logged in"
-        Travis::User.current.sync
+        begin
 
-        key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
+          Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
+          #client=Travis::Client.new()
+          puts "Travis is trying to sync"
+          puts "#{Travis::User.current.name} is logged in"
+          Travis::User.current.sync
 
-        if $?.success?
-          success=true
-          puts "SECURE HEROKU KEY GENERATED #{key}"
+          key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
+
+          if $?.success?
+            success=true
+            puts "SECURE HEROKU KEY GENERATED #{key}"
+          end
+
+        rescue
+          puts "Connection with Travis failed"
+
         end
 
         trycount=trycount+1
