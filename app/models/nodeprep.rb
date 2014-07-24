@@ -66,6 +66,12 @@ class Nodeprep
 
       while trycount<maxtries and !success
         sleep(1.0)
+
+        Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
+        #client=Travis::Client.new()
+        puts "Travis is trying to sync"
+        Travis::User.current.sync
+
         key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
 
         if $?.success?

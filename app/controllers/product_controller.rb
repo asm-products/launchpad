@@ -38,7 +38,7 @@ class ProductController < ApplicationController
     heroku_app_name=title+"-assembled"
 
     puts "Attempting to create Github Repo"
-    #CREATE GITHUB REPOSITORY    
+    #CREATE GITHUB REPOSITORY
     GitPusher.create_repo(title)
 
     #CREATE HEROKU REPOSITORY
@@ -52,13 +52,18 @@ class ProductController < ApplicationController
     #EDIT NODETEMPLATE FILES  --  PRODUCT SPECIFIC INFO, TRAVIS.YML STUFF
 
     Nodeprep.edit_index_file(title)
+
+    
     Nodeprep.edit_travis(heroku_app_name,title)
+
+
+
     Nodeprep.edit_packagejson(title, heroku_app_name)
 
     #PUSH NODEJS FILES TO GITHUB
 
     node_contents.each do |file_path|
-    repo_path=file_path
+      repo_path=file_path
       if !File.directory?(file_path) and file_path!="nodetemplate/."
         file_contents=File.read(file_path)
 
@@ -75,9 +80,6 @@ class ProductController < ApplicationController
     travis_path="assemblymade/#{title}"
     puts travis_path
 
-    #SLEEP TO ALLOW TRAVIS TO CATCH UP TO GITHUB
-
-    sleep(50.0)
     puts "Enabling on Travis-CI"
     Travispush.push(travis_path)
 
