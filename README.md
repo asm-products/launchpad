@@ -54,7 +54,6 @@ To deploy a new project with a minimal Node.JS server
 
 ISSUES
 
-
 2  Currently deploying to my personal Heroku, needs to be
     'transferred' to the Assembly organization
 
@@ -69,4 +68,4 @@ ISSUES
 
 7  Delete all ENV file commits
 
-8  HEROKU TALKER remove htoken explicitly there
+9  TITLE MUST BE FORCED AS LOWERCASE

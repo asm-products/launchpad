@@ -6,11 +6,9 @@ node_js:
 - '0.6'
 deploy:
   provider: heroku
-  app: wasserfall-assembled
+  app: gallipoli-assembled
   api_key:
-    secure : "YA/ej6sI9yYbZHg4MBFOR00XiRl1T+SW8JVItuwRjf5+b7aXZq3f1tcE2x0D/9V9PdVK9cp0IfaI72RmUfhnu5PjSWqxtOWhzISE3iOsNKjd76iqE0QX3Pwvp916TyhjNLBIjePf+bJOFszexZvHJalY83E90rYKOXPS1UVnPA8="
+    secure : "ZQKjlXO459PXGj+EZVumRLmDZaRCyY3MQ2QUg/cXBVYONjglZzmHy2hgDXh+Clt3el/gbCyn5uY/5Xak/Y0WsUOMX/RaWIp8/qH4lCWIoEXj2KyschpMmaWV7gPiiltKGZQp2ha0nDLTYpePg4H2/1VexuSfKRESNl96XJzg2nU="
   strategy: git
  before_deploy:
-- git fetch --unshallow before_deploy:
-- git fetch --unshallow before_deploy:
 - git fetch --unshallow

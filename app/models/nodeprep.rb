@@ -56,7 +56,7 @@ class Nodeprep
       lines[8]="  app: "+heroku_app_name+"\n"
 
 
-      htoke="371c0b38-bce1-4483-b6ab-a66c73d16a17"
+      htoke=ENV['HEROKU_AUTH_TOKEN']
       auth=Base64.strict_encode64(":#{htoke}")
       puts "AUTH #{auth}"
 
@@ -64,16 +64,14 @@ class Nodeprep
       `cd ~/nodetemplate`
       key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
       `cd ~`
-      puts key
+      puts "SECURE HEROKU KEY GENERATED #{key}"
 
 
       lines[10]="    secure : #{key}"
 
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
-      f.write(" before_deploy:\n- git fetch --unshallow")
       f.close unless f==nil
-      #puts File.read(travis_file_path)
 
 
 
