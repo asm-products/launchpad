@@ -1,8 +1,5 @@
 class Travispush
 
-  #def initialize(travis)
-  #  @travis = travis
-  #end
 
   def self.push(repo_path)
     #sleep(4.0)
@@ -13,9 +10,11 @@ class Travispush
     rails = Travis::Repository.find(repo_path)
     rails.enable
     puts "Enabled Github Repo on Travis-CI"
+
+    #travis_file_path='./nodetemplate/.travis.yml'
+    #lines=File.readlines(travis_file_path)
+    #lines[10] =
+
   end
 
 end
-
-#object = Travispush.new(t)
-#object.push('asdf/asdf')
