@@ -51,7 +51,7 @@ class ProductController < ApplicationController
     #EDIT NODETEMPLATE FILES  --  PRODUCT SPECIFIC INFO, TRAVIS.YML STUFF
 
     Nodeprep.edit_index_file(title)
-    Nodeprep.edit_packagejsonw(title, heroku_app_name)
+    Nodeprep.edit_packagejson(title, heroku_app_name)
     Nodeprep.edit_travis(heroku_app_name,title)
     sleep(2.0)
 
