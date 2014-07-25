@@ -5,21 +5,14 @@ class Herokutalker
     HTOKEN= ENV['HEROKU_AUTH_TOKEN']
 
     def create_app(name)
-
       heroku=Heroku::API.new(:api_key => HTOKEN)
-
       heroku.post_app(name: name)
       puts "Heroku App #{name} assembled"
-
     end
 
-
-
     def heroku_build(name)
-
       heroku_git_repo='git@heroku.com:'+name+'.git'
       puts heroku_git_repo
-  
 
       m='cd nodetemplate;'
       m=m+'git init;'
@@ -32,13 +25,11 @@ class Herokutalker
       exec(m)
 
       puts "Connecting to New Heroku remote #{heroku_git_repo}}"
-
     end
 
     def transfer_app(heroku_app_name, new_owner)
 
         htoke=HTOKEN
-
         auth=Base64.strict_encode64(":#{htoke}")
         puts "AUTH #{auth}"
         transfer_url="https://api.heroku.com/account/app-transfers"
@@ -47,13 +38,11 @@ class Herokutalker
         }.to_json,
           :headers => {"Accept" => "application/vnd.heroku+json; version=3",
           'Content-Type' => 'application/json',
-          'Authorization'=> auth#'c5ec0392-c8b9-4f76-834a-63271554e072'#ENV['HEROKU_AUTH_TOKEN']
+          'Authorization'=> auth
         }
         )
         puts response
-
     end
-
 
   end
 end

@@ -26,7 +26,6 @@ class ProductController < ApplicationController
     if a.nil?
       render json: {message: "The Repository is empty..."}
     else
-      #render a.body
       render json: JSON.parse(a.body)
     end
   end
@@ -52,7 +51,7 @@ class ProductController < ApplicationController
     #EDIT NODETEMPLATE FILES  --  PRODUCT SPECIFIC INFO, TRAVIS.YML STUFF
 
     Nodeprep.edit_index_file(title)
-    Nodeprep.edit_packagejson(title, heroku_app_name)
+    Nodeprep.edit_packagejsonw(title, heroku_app_name)
     Nodeprep.edit_travis(heroku_app_name,title)
     sleep(2.0)
 
@@ -73,9 +72,10 @@ class ProductController < ApplicationController
       end
     end
 
-    travis_path="assemblymade/#{title}"
+    travis_path="asm-products/#{title}"
     puts travis_path
 
+    sleep(10.0)
     puts "Enabling on Travis-CI"
     Travispush.push(travis_path)
 
@@ -98,7 +98,7 @@ end
 
 def travisenable
   title=params[:title]
-  repo_path='assemblymade/'+title
+  repo_path='asm-products/'+title
   Travispush.push(repo_path)
 
   puts "Adding Readme"

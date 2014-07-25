@@ -42,9 +42,6 @@ class Nodeprep
       newfile=File.open(newfile_path,'w')
       newfile.write(newtext)
 
-      #newfile.close()
-
-    #  template_contents.close()
 
     end
 
@@ -69,13 +66,15 @@ class Nodeprep
 
         begin
 
-          Travis.access_token = "zPfGpvUGrci1cFk198Bdow"
+          Travis.access_token = ENV['TRAVIS_AUTH_TOKEN']
           #client=Travis::Client.new()
           puts "Travis is trying to sync"
           puts "#{Travis::User.current.name} is logged in"
           Travis::User.current.sync
 
-          key=(`travis encrypt #{auth} -r assemblymade/#{title} --skip-version-check`)
+          orgname='asm-products'
+
+          key=(`travis encrypt #{auth} -r #{orgname}/#{title} --skip-version-check`)
 
           if $?.success?
             success=true
@@ -97,32 +96,24 @@ class Nodeprep
       f=File.open(travis_file_path,'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
-
-
-
-
-
     end
 
 
   #EDIT PACKAGE.JSON FILE
     def edit_packagejson(title,heroku_app_name)
+      orgname='asm-products'
+
       packagejson_file_path='nodetemplate/package.json'
       lines=File.readlines(packagejson_file_path)
       lines[1] =   "\"name\":  \"#{heroku_app_name}\",\n"
-      lines[10]= "   \"url\": \"https://github.com/assemblymade/#{title}.git\"\n"
-      lines[15]= "   \"url\": \"https://github.com/assemblymade/#{title}/issues\" \n"
+      lines[10]= "   \"url\": \"https://github.com/org-name/#{title}.git\"\n"
+      lines[15]= "   \"url\": \"https://github.com/org-name/#{title}/issues\" \n"
 
       f=File.open(packagejson_file_path,'w')
       lines.each do |x| f.write(x) end
       f.close unless f==nil
       #puts File.read(packagejson_file_path)
     end
-
-
-
-
   end
-
 
 end
