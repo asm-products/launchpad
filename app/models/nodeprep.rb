@@ -74,7 +74,7 @@ class Nodeprep
 
           orgname='asm-products'
 
-          key=(`travis encrypt #{auth} -r #{orgname}/#{title} --skip-version-check`)
+          key=(`travis encrypt #{auth} -r asm-products/#{title} --skip-version-check`)
 
           if $?.success?
             success=true
