@@ -11,9 +11,11 @@ class Nodeprep
 
     def get_random_image
       #require 'open-uri'
-      url="'http://lorempixel.com/600/400/abstract'"
+      url='http://lorempixel.com/600/400/abstract'
       open('nodetemplate/public/freelancer/random_image.png', 'wb') do |file|
-        file << open(url).read
+        imgdata=HTTParty.get(url)
+
+        file << imgdata
       end
 
     end
