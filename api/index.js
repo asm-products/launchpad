@@ -1,5 +1,4 @@
 var Hapi = require('hapi');
-var config = require('../config.json');
 
 var manifest = {
   servers: [
@@ -10,7 +9,7 @@ var manifest = {
 
   plugins: {
     'launchpad-gh': {
-      token: process.env.GIT_HUB_TOKEN || config.GIT_HUB_TOKEN,
+      token: process.env.GIT_HUB_TOKEN,
       uri: 'https://api.github.com'
     },
     // 'launchpad-heroku': {

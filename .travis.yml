@@ -1,0 +1,8 @@
+language: node_js
+node_js: '0.10'
+deploy:
+  provider: heroku
+  strategy: git
+  app: asm-launchpad
+  api_key:
+    secure: jVNWoeVjjNUXr43lGnXo+SlUfhLFZ66ZzCv04t+G4R6OZhi2ilnpDXwcabSdgyg0+TaeD/5pAUhfr5YlJE8HevKLFSrkXq5HwSIO8u4ENW5DiiBbj/+QxtqnGBWj7hbLzw9AmEvuvxJ6TpziTDwInkAz6ofMao3AKV4Br6XheZA=
