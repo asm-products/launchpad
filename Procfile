@@ -1,1 +1,1 @@
-web: bin/rails server --port $PORT
+web: npm start

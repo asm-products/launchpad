@@ -1,6 +1,0 @@
-development:
-   adapter: postgresql
-   encoding: unicode
-   database: assemblyapi
-   pool: 5
-   
