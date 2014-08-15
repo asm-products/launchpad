@@ -3,7 +3,12 @@ var Hapi = require('hapi');
 var manifest = {
   servers: [
     {
-      port: process.env.PORT || 8080
+      port: process.env.PORT || 8080,
+      options: {
+        debug: {
+          request: ['error', 'log', 'request']
+        }
+      }
     }
   ],
 
