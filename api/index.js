@@ -10,7 +10,8 @@ var manifest = {
   plugins: {
     'launchpad-gh': {
       token: process.env.GIT_HUB_TOKEN,
-      uri: 'https://api.github.com'
+      uri: 'https://api.github.com',
+      organization: 'asm-products'
     },
     // 'launchpad-heroku': {
     //   token: process.env.HEROKU_TOKEN || config.HEROKU_TOKEN
