@@ -1,0 +1,40 @@
+{
+  "name": "launchpad",
+  "version": "0.0.0",
+  "description": "A service for getting products off the ground",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "lab -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:asm-products/launchpad.git"
+  },
+  "keywords": [
+    "assembly",
+    "launchpad"
+  ],
+  "authors": [
+    {
+      "name": "Charles Pletcher",
+      "email": "chuck@assembly.com"
+    },
+    {
+      "name": "Andrew Barisser",
+      "email": "barisser@assembly.com"
+    }
+  ],
+  "license": "ASM-BSD",
+  "bugs": {
+    "url": "https://github.com/asm-products/launchpad/issues"
+  },
+  "homepage": "https://github.com/asm-products/launchpad",
+  "dependencies": {
+    "hapi": "^6.5.1",
+    "launchpad-gh": "pletcher/launchpad-gh"
+  },
+  "devDependencies": {
+    "lab": "^4.0.2"
+  }
+}
