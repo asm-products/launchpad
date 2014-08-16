@@ -17,11 +17,17 @@ module.exports = function() {
     ],
 
     plugins: {
+      'launchpad-dns': {
+        token: process.env.DNS_TOKEN,
+        uri: 'https://api.dnsimple.com/v1/domains/' + process.env.DOMAIN + '/records'
+      },
+
       'launchpad-gh': {
         token: process.env.GIT_HUB_TOKEN,
         uri: 'https://api.github.com',
-        organization: 'asm-products'
-      },
+        organization: 'asm-products',
+        domain: process.env.DOMAIN
+      }
       // 'launchpad-heroku': {
       //   token: process.env.HEROKU_TOKEN || config.HEROKU_TOKEN
       // }
