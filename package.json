@@ -31,9 +31,10 @@
   },
   "homepage": "https://github.com/asm-products/launchpad",
   "dependencies": {
+    "dotenv": "^0.4.0",
     "hapi": "^6.5.1",
-    "launchpad-gh": "pletcher/launchpad-gh",
-    "launchpad-dns": "pletcher/launchpad-dns"
+    "launchpad-dns": "pletcher/launchpad-dns",
+    "launchpad-gh": "pletcher/launchpad-gh"
   },
   "devDependencies": {
     "dotenv": "^0.4.0",
