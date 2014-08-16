@@ -34,7 +34,8 @@
     "dotenv": "^0.4.0",
     "hapi": "^6.5.1",
     "launchpad-dns": "pletcher/launchpad-dns",
-    "launchpad-gh": "pletcher/launchpad-gh"
+    "launchpad-gh": "pletcher/launchpad-gh",
+    "nipple": "^2.5.5"
   },
   "devDependencies": {
     "dotenv": "^0.4.0",
