@@ -2,18 +2,6 @@
 .DS_Store
 .env
 
-config.json
 npm-debug.log
 
 node_modules
-
-# Ignore bundler config.
-/.bundle
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp

@@ -32,14 +32,14 @@
   "homepage": "https://github.com/asm-products/launchpad",
   "dependencies": {
     "dotenv": "^0.4.0",
-    "hapi": "^6.5.1",
+    "hapi": "^6.6.0",
     "launchpad-dns": "asm-products/launchpad-dns",
     "launchpad-gh": "asm-products/launchpad-gh",
     "nipple": "^2.5.5"
   },
   "devDependencies": {
     "dotenv": "^0.4.0",
-    "lab": "^4.0.2",
+    "lab": "^4.1.0",
     "sinon": "^1.10.3"
   },
   "engines": {
